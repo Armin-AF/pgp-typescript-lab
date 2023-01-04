@@ -9,6 +9,16 @@ interface User {
         age: number;
     };
     email: string;
+    location: {
+        street: {
+            number: number;
+            name: string;
+        };
+        city: string;
+        state: string;
+        country: string;
+        postcode: number;
+    };
 }
 
 interface UserInfoState {
@@ -46,6 +56,14 @@ class UserInfo extends React.Component<{}, UserInfoState> {
                 <p>Name: {`${user.name.first} ${user.name.last}`}</p>
                 <p>Age: {user.dob.age}</p>
                 <p>Email: {user.email}</p>
+                <h3>Address</h3>
+                <p>
+                    {user.location.street.number} {user.location.street.name}
+                </p>
+                <p>
+                    {user.location.city}, {user.location.state} {user.location.postcode}
+                </p>
+                <p>{user.location.country}</p>
             </div>
         );
     }
