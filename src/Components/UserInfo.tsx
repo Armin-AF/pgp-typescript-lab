@@ -5,7 +5,9 @@ interface User {
         first: string;
         last: string;
     };
-    age: number;
+    dob: {
+        age: number;
+    };
     email: string;
 }
 
@@ -42,7 +44,7 @@ class UserInfo extends React.Component<{}, UserInfoState> {
             <div>
                 <h2>User Information</h2>
                 <p>Name: {`${user.name.first} ${user.name.last}`}</p>
-                <p>Age: {user.age}</p>
+                <p>Age: {user.dob.age}</p>
                 <p>Email: {user.email}</p>
             </div>
         );
