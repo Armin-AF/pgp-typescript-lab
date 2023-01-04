@@ -54,15 +54,17 @@ class UserInfo extends React.Component<{}, UserInfoState> {
     handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         // @ts-ignore
-        this.setState(prevState => ({
-            user: {
-                ...prevState.user,
-                name: {
-                    ...prevState.user.name,
-                    [name]: value
+        this.setState(({user}) => {
+            return ({
+                user: {
+                    ...(user),
+                    name: {
+                        ...user!.name,
+                        [name]: value
+                    }
                 }
-            }
-        }));
+            });
+        });
     };
 
     render() {
